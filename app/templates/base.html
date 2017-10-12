@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title>{{ title }} - Dashboard</title>
+    <link rel = "stylesheet" type = "text/css" href = "../static/style.css" />
+    <script src="../static/plotly-latest.min.js"></script>
+  </head>
+  <body style="margin: 0; padding: 0;">
+    <div style="height:7%; background-color: #171819;"><a href="/" style="color: white; vertical-align: middle; text-decoration: none; font-family: Sans-serif; font-size: 20px; position: relative; transform: translateY(-50%); top: 35%; padding-left: 5%">Access Log Dashboard >>></a></div>
+    <div class="container">
+      <div class="column-left" style="float: left; width: 15%; background-color: #3c3f42; height: 93%">
+      </div>
+      <div class="column-centre" style="display: inline-block; width: 80%; color: #3c3f42;">
+        {% block content %}
+        {% endblock %}
+      </div>
+    </div>
+  </body>
+</html>

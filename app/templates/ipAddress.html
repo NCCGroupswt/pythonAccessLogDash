@@ -1,0 +1,33 @@
+{% extends 'baseDashboards.html' %}
+{% block content %}
+<ul>
+  {% for name in table_names %}
+    <li><a href=../{{name}}>{{ name }}</a></li>
+  {% endfor %}
+</ul>
+
+<div class="content">
+  <table id="IPAddress">
+    <thead>
+      <tr><th>IP Address</th></tr>
+    </thead>
+    <tbody>
+      {% for ip in uniqueIP %}
+      <tr><td>{{ ip }}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <script>
+  $(document).ready(function(){
+    $('#IPAddress').DataTable({
+      "bPaginate": true,
+      "bFilter": true,
+      "sScrollY": "600",
+      "sScrollXInner": "400%"
+    });
+  });
+  </script>
+</div>
+
+{% endblock %}

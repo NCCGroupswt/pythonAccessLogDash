@@ -1,0 +1,24 @@
+{% extends 'baseDashboards.html' %}
+{% block content %}
+<ul>
+  {% for name in table_names %}
+    <li><a href=../{{name}}>{{ name }}</a></li>
+  {% endfor %}
+</ul>
+
+<div class="content">
+<div id="pieChart"></div>
+<script>
+  var data = [{
+    values: {{ httpCodesValues|safe }},
+    labels: {{ httpCodes|safe }},
+    type: 'pie'
+  }];
+  var layout = {
+    height: 600,
+    width: 800
+  };
+  Plotly.newPlot('pieChart', data, layout);
+</script>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'baseDashboards.html' %}
+{% block content %}
+<ul>
+  {% for name in table_names %}
+    <li><a href=../{{name}}>{{ name }}</a></li>
+  {% endfor %}
+</ul>
+
+<p> {{ dates }} </p>
+<p> {{ requests }} </p>
+
+<div id="barChart"></div>
+
+<script>
+var data = [
+  {
+    x: {{ dates|safe }},
+    y: {{ requests|safe }},
+    type: 'bar'
+  }
+];
+
+Plotly.newPlot('barChart', data);
+</script>
+
+{% endblock %}

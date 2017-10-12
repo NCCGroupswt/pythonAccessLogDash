@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>{{ title }} - Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="../static/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/jquery.dataTables.css"/>
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+    <script src="../static/plotly-latest.min.js"></script>
+    <script src="../static/jquery-1.8.2.min.js"></script>
+    <script src="../static/jquery.dataTables.min.js"></script>
+  </head>
+  <body style="margin: 0; padding: 0;">
+    <div style="height:7%; background-color: #171819;"><a href="/" style="color: white; vertical-align: middle; text-decoration: none; font-family: Sans-serif; font-size: 20px; position: relative; transform: translateY(-50%); top: 35%; padding-left: 5%">Access Log Dashboard >>></a></div>
+    <div class="container">
+      <div class="column-left" style="float: left; width: 15%; background-color: #3c3f42; height: 93%">
+        <ul>
+          <li><a href="LoadProfile">Load Profile</a></li>
+          <li><a href="IPAddress">Total IP Addresses</a></li>
+          <li><a href="UserJourneys">User Journeys (Not yet built, version 2.0)</a></li>
+          <li><a href="UserAgents">User Agents</a></li>
+          <li><a href="HttpCode">Return Codes</a></li>
+        </ul>
+      </div>
+      <div class="column-centre" style="display: inline-block; width: 80%; color: #3c3f42;">
+          {% block content %}
+          {% endblock %}
+      </div>
+    </div>
+  </body>
+</html>

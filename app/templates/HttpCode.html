@@ -1,0 +1,34 @@
+{% extends 'baseDashboards.html' %}
+{% block content %}
+<ul>
+  {% for name in table_names %}
+    <li><a href=../{{name}}>{{ name }}</a></li>
+  {% endfor %}
+</ul>
+<div class="content">
+
+  <div id="lineGraph" style ="height=500px"></div>
+  <script>
+    var trace1  = {x: {{ httpTimeStamp|safe}}, y: {{ HTTP200|safe }}, type: 'scatter', mode: 'lines+markers', name: 'HTTP 200'};
+    var trace2  = {x: {{ httpTimeStamp|safe}}, y: {{ HTTP201|safe }}, type: 'scatter', mode: 'lines+markers', name: 'HTTP 201'};
+    var trace3  = {x: {{ httpTimeStamp|safe}}, y: {{ HTTP202|safe }}, type: 'scatter', mode: 'lines+markers', name: 'HTTP 202'};
+    var trace4  = {x: {{ httpTimeStamp|safe}}, y: {{ HTTP302|safe }}, type: 'scatter', mode: 'lines+markers', name: 'HTTP 302'};
+    var trace5  = {x: {{ httpTimeStamp|safe}}, y: {{ HTTP304|safe }}, type: 'scatter', mode: 'lines+markers', name: 'HTTP 304'};
+    var trace6  = {x: {{ httpTimeStamp|safe}}, y: {{ HTTP400|safe }}, type: 'scatter', mode: 'lines+markers', name: 'HTTP 400'};
+    var trace7  = {x: {{ httpTimeStamp|safe}}, y: {{ HTTP401|safe }}, type: 'scatter', mode: 'lines+markers', name: 'HTTP 401'};
+    var trace8  = {x: {{ httpTimeStamp|safe}}, y: {{ HTTP403|safe }}, type: 'scatter', mode: 'lines+markers', name: 'HTTP 403'};
+    var trace9  = {x: {{ httpTimeStamp|safe}}, y: {{ HTTP404|safe }}, type: 'scatter', mode: 'lines+markers', name: 'HTTP 404'};
+    var trace10 = {x: {{ httpTimeStamp|safe}}, y: {{ HTTP405|safe }}, type: 'scatter', mode: 'lines+markers', name: 'HTTP 405'};
+    var trace11 = {x: {{ httpTimeStamp|safe}}, y: {{ HTTP406|safe }}, type: 'scatter', mode: 'lines+markers', name: 'HTTP 406'};
+    var trace12 = {x: {{ httpTimeStamp|safe}}, y: {{ HTTP500|safe }}, type: 'scatter', mode: 'lines+markers', name: 'HTTP 500'};
+    var trace13 = {x: {{ httpTimeStamp|safe}}, y: {{ HTTP502|safe }}, type: 'scatter', mode: 'lines+markers', name: 'HTTP 502'};
+    var trace14 = {x: {{ httpTimeStamp|safe}}, y: {{ HTTP503|safe }}, type: 'scatter', mode: 'lines+markers', name: 'HTTP 503'};
+    var trace15 = {x: {{ httpTimeStamp|safe}}, y: {{ HTTP504|safe }}, type: 'scatter', mode: 'lines+markers', name: 'HTTP 504'};
+
+    var data = [trace1, trace2, trace3, trace4, trace5, trace6, trace7, trace8, trace9, trace10, trace11, trace12, trace13, trace14, trace15];
+
+    Plotly.newPlot('lineGraph', data);
+  </script>
+
+</div>
+{% endblock %}
